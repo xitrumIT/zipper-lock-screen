@@ -49,6 +49,7 @@ public class VerticalLocker extends ZipperLock {
 
     private static final String TAG = "sww";
     public void init(ImageView imgZip, ImageView imgFront, UnlockListener unlockListener) {
+        Log.e(TAG, "init: 方法");
 
         this.imgZipper = imgZip;
         this.imgFront = imgFront;
@@ -63,7 +64,7 @@ public class VerticalLocker extends ZipperLock {
         this.bmpPendant = BitmapFactory.decodeResource(this.context.getResources(), R.drawable.pendant_v_0);
         this.unlockListener = unlockListener;
 
-        this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.3235d);
+        this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.3535d);
 //        this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.4235d);
         if (this.bmpZipper.getHeight() < this.step + this.height) {
             int nS = (int) (((float) this.step) * (((float) this.height) / ((float) (this.bmpZipper.getHeight() - this.step))));
@@ -76,7 +77,7 @@ public class VerticalLocker extends ZipperLock {
                 this.bmpZipper = Bitmap.createScaledBitmap(this.bmpZipper, this.width, (int) (((float) (this.height + nS)) * (((float) this.width) / ((float) bmpWidth))), true);
             }
 //            this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.4235d);
-            this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.3235d);
+            this.step = (int) (((double) this.bmpZipper.getHeight()) * 0.3535d);
             this.bmpMask = Bitmap.createScaledBitmap(this.bmpMask, this.bmpZipper.getWidth(), this.bmpZipper.getHeight(), true);
             this.bmpPendant = Bitmap.createScaledBitmap(this.bmpPendant, this.bmpZipper.getWidth(), this.bmpZipper.getHeight(), true);
         } else if (this.bmpZipper.getWidth() - this.width > 0) {
